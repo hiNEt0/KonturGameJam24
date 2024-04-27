@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-
-@export var speed = 600 # How fast the player will move (pixels/sec).
+@export var speed = 100 # How fast the player will move (pixels/sec).
 @onready var aim = $aim
 @onready var sprite = $sprites
 
@@ -28,11 +27,12 @@ func _physics_process(delta):
 	if not Input.is_anything_pressed():
 		sprite.play("idle")
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
+	# As good practice, you should replace UI actions with custom gameplay actions
 	#if direction:
 		#velocity.x = direction * speed
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, speed)
 
-	move_and_collide(velocity)
+	move_and_collide(velocity.normalized() * speed * delta)
+	
+

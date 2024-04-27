@@ -17,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://deopm0ffg1cc0" path="res://resources/sprites/wizard/wiz_right/wiz_right_5.png" id="14_w7qw1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a74h8"]
-radius = 57.0
-height = 246.0
+radius = 59.0
+height = 252.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4xlkr"]
 animations = [{
