@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu6jwnbw51e4d"]
+
+[ext_resource type="Texture2D" uid="uid://dkab6iquxq1e2" path="res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png" id="1_4gx2x"]
+[ext_resource type="Script" path="res://player_control.gd" id="1_5smom"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kb7m"]
+radius = 57.0
+height = 246.0
+
+[node name="Player" type="Area2D"]
+position = Vector2(4, 1)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_5smom")
+speed = 200
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.341667, 0.341667)
+texture = ExtResource("1_4gx2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_6kb7m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+
+[node name="aim" type="Sprite2D" parent="."]
+scale = Vector2(0.0555556, 0.0555556)
+texture = ExtResource("1_4gx2x")
