@@ -1,36 +1,22 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=6 format=3 uid="uid://dgb4defbtx4ra"]
-=======
-[gd_scene load_steps=8 format=3 uid="uid://o4c6g3wj2es0"]
->>>>>>> Stashed changes
+[gd_scene load_steps=7 format=3 uid="uid://dpf2uieo62ekj"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_3xvkm"]
-[ext_resource type="PackedScene" uid="uid://d2r6iomqfnpj3" path="res://player_2.tscn" id="1_5trys"]
-[ext_resource type="PackedScene" uid="uid://cmf2yiyjubp7u" path="res://enemy.tscn" id="2_2ilrm"]
-[ext_resource type="PackedScene" uid="uid://c0f5sh75fgna1" path="res://background.tscn" id="2_qp0fh"]
-[ext_resource type="PackedScene" uid="uid://csf33uq2lytm4" path="res://scenes/exploding_fire/exploding_fire_caster.tscn" id="5_h67dd"]
-[ext_resource type="PackedScene" uid="uid://dkbpliagy2o1y" path="res://event_manager.tscn" id="7_obskm"]
+[ext_resource type="Script" path="res://game.gd" id="1_e3g5l"]
+[ext_resource type="PackedScene" uid="uid://cmf2yiyjubp7u" path="res://enemy.tscn" id="2_48vdd"]
+[ext_resource type="PackedScene" uid="uid://c0f5sh75fgna1" path="res://background.tscn" id="2_tdtdf"]
+[ext_resource type="PackedScene" uid="uid://d2r6iomqfnpj3" path="res://player_2.tscn" id="3_uhgwk"]
+[ext_resource type="PackedScene" uid="uid://dkbpliagy2o1y" path="res://event_manager.tscn" id="4_35yc0"]
+[ext_resource type="PackedScene" uid="uid://csf33uq2lytm4" path="res://scenes/exploding_fire/exploding_fire_caster.tscn" id="5_wd4oy"]
 
 [node name="Game" type="Node"]
-script = ExtResource("1_3xvkm")
-enemy_scene = ExtResource("2_2ilrm")
+script = ExtResource("1_e3g5l")
+enemy_scene = ExtResource("2_48vdd")
 time_to_spawn = 1.0
 
-[node name="Player2" parent="." instance=ExtResource("1_5trys")]
-z_index = 1
-position = Vector2(-9, 103)
+[node name="Background" parent="." instance=ExtResource("2_tdtdf")]
 
-<<<<<<< Updated upstream
-[node name="RayCast2D" type="RayCast2D" parent="Player2"]
-=======
-[node name="FireBaller" parent="Player2" instance=ExtResource("4_wpnjn")]
+[node name="Player2" parent="." instance=ExtResource("3_uhgwk")]
+position = Vector2(-429, -262)
 
-[node name="RayCast2D2" type="RayCast2D" parent="Player2"]
->>>>>>> Stashed changes
+[node name="ExplodingFireCaster" parent="Player2" instance=ExtResource("5_wd4oy")]
 
-[node name="ExplodingFireCaster" parent="Player2" instance=ExtResource("5_h67dd")]
-
-[node name="Background" parent="." instance=ExtResource("2_qp0fh")]
-position = Vector2(325.267, 142.631)
-
-[node name="EventManager" parent="." instance=ExtResource("7_obskm")]
+[node name="EventManager" parent="." instance=ExtResource("4_35yc0")]

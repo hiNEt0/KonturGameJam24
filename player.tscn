@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdxrboxx38qn4"]
+[gd_scene load_steps=18 format=3 uid="uid://cdumgk1mpl45m"]
 
 [ext_resource type="Texture2D" uid="uid://dkab6iquxq1e2" path="res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png" id="1_4gx2x"]
 [ext_resource type="Texture2D" uid="uid://do0ntjp3ptd5y" path="res://resources/sprites/wizard/wiz_idle/wiz_idle_0.png" id="3_7tc1o"]
@@ -21,6 +21,7 @@ script/source = "extends Area2D
 @export var speed = 400 # How fast the player will move (pixels/sec).
 @onready var aim = $aim
 @onready var sprite = $sprites
+var movement_modifier = Vector2(1, 1)
 
 func _process(delta):
 	aim.position.x = 0
@@ -48,10 +49,9 @@ func _process(delta):
 		#$AnimatedSprite2D.play()
 	#else:\"res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png\"
 		#$AnimatedSprite2D.stop()
-	
-	
+	velocity.x *= movement_modifier.x
+	velocity.y *= movement_modifier.y
 	position += velocity.normalized() * delta * speed
-	
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kb7m"]
