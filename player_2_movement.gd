@@ -1,12 +1,15 @@
-extends Area2D
+extends CharacterBody2D
 
-@export var speed = 400 # How fast the player will move (pixels/sec).
+
+@export var speed = 600 # How fast the player will move (pixels/sec).
 @onready var aim = $aim
 @onready var sprite = $sprites
 
-func _process(delta):
-	aim.position.x = 0
-	aim.position.y = 0
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+
+
+
+func _physics_process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("move_right"):
 		sprite.play("wiz_right")
@@ -24,13 +27,12 @@ func _process(delta):
 		aim.position.y = -100
 	if not Input.is_anything_pressed():
 		sprite.play("idle")
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction = Input.get_axis("ui_left", "ui_right")
+	#if direction:
+		#velocity.x = direction * speed
+	#else:
+		#velocity.x = move_toward(velocity.x, 0, speed)
 
-	#if velocity.length() > 0:
-		#velocity = velocity.normalized() * speed
-		#$AnimatedSprite2D.play()
-	#else:"res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png"
-		#$AnimatedSprite2D.stop()
-	
-	
-	position += velocity.normalized() * delta * speed
-	
+	move_and_collide(velocity)

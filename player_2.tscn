@@ -1,0 +1,101 @@
+[gd_scene load_steps=18 format=3 uid="uid://d2r6iomqfnpj3"]
+
+[ext_resource type="Texture2D" uid="uid://dkab6iquxq1e2" path="res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png" id="1_hwfi1"]
+[ext_resource type="Script" path="res://player_2_movement.gd" id="1_k3r6g"]
+[ext_resource type="Texture2D" uid="uid://do0ntjp3ptd5y" path="res://resources/sprites/wizard/wiz_idle/wiz_idle_0.png" id="2_kdec3"]
+[ext_resource type="Texture2D" uid="uid://dvhao8svu6d0j" path="res://resources/sprites/wizard/wiz_left/wiz_left_0.png" id="3_mu16e"]
+[ext_resource type="Texture2D" uid="uid://btnr6p8ksceey" path="res://resources/sprites/wizard/wiz_left/wiz_left_1.png" id="4_c2ey6"]
+[ext_resource type="Texture2D" uid="uid://c4r2d24rs3ilt" path="res://resources/sprites/wizard/wiz_left/wiz_left_2.png" id="5_bdagb"]
+[ext_resource type="Texture2D" uid="uid://ck61ikgsivpf0" path="res://resources/sprites/wizard/wiz_left/wiz_left_3.png" id="6_wmgc5"]
+[ext_resource type="Texture2D" uid="uid://d4b5b286860km" path="res://resources/sprites/wizard/wiz_left/wiz_left_4.png" id="7_t8216"]
+[ext_resource type="Texture2D" uid="uid://cl35tp74plfit" path="res://resources/sprites/wizard/wiz_left/wiz_left_5.png" id="8_ud7bn"]
+[ext_resource type="Texture2D" uid="uid://c400nnfv2hwph" path="res://resources/sprites/wizard/wiz_right/wiz_right_0.png" id="9_jopn2"]
+[ext_resource type="Texture2D" uid="uid://bqplvesgd5oqr" path="res://resources/sprites/wizard/wiz_right/wiz_right_1.png" id="10_j1rkl"]
+[ext_resource type="Texture2D" uid="uid://bru8yestj1erj" path="res://resources/sprites/wizard/wiz_right/wiz_right_2.png" id="11_arjkb"]
+[ext_resource type="Texture2D" uid="uid://d0tnoppx64sk" path="res://resources/sprites/wizard/wiz_right/wiz_right_3.png" id="12_4h81s"]
+[ext_resource type="Texture2D" uid="uid://66t76u0ppo4y" path="res://resources/sprites/wizard/wiz_right/wiz_right_4.png" id="13_hjknb"]
+[ext_resource type="Texture2D" uid="uid://deopm0ffg1cc0" path="res://resources/sprites/wizard/wiz_right/wiz_right_5.png" id="14_w7qw1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a74h8"]
+radius = 57.0
+height = 246.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xlkr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kdec3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mu16e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c2ey6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bdagb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wmgc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t8216")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ud7bn")
+}],
+"loop": true,
+"name": &"wiz_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_jopn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j1rkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_arjkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4h81s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hjknb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_w7qw1")
+}],
+"loop": true,
+"name": &"wiz_right",
+"speed": 5.0
+}]
+
+[node name="Player2" type="CharacterBody2D"]
+script = ExtResource("1_k3r6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_a74h8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+
+[node name="aim" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.0555556, 0.0555556)
+texture = ExtResource("1_hwfi1")
+
+[node name="sprites" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(70, -20)
+scale = Vector2(8.21795, 8.21795)
+sprite_frames = SubResource("SpriteFrames_4xlkr")
+animation = &"idle"
