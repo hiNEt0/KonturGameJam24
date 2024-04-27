@@ -13,7 +13,6 @@ func _process(delta):
 	position += direction * speed * delta
 	
 
-
 func _on_body_entered(body):
 	if body is Enemy:
 		body.get_damage(100)

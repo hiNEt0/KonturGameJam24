@@ -17,11 +17,15 @@ var direction: Vector2
 func _process(delta):
 	position += direction.normalized() * speed * delta
 	speed = speed_curve.sample(lifetime / max_lifetime)
-
+		
 	lifetime += delta
 	if lifetime >= max_lifetime:
 		explode()
 		queue_free()
+
+func _on_body_entered(body):
+	if body is Enemy:
+		lifetime = max_lifetime
 
 func setup(player_position, player_direction):
 	position = player_position
