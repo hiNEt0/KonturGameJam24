@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d2r6iomqfnpj3" path="res://player_2.tscn" id="1_5trys"]
 [ext_resource type="PackedScene" uid="uid://cmf2yiyjubp7u" path="res://enemy.tscn" id="2_2ilrm"]
 [ext_resource type="PackedScene" uid="uid://c0f5sh75fgna1" path="res://background.tscn" id="2_qp0fh"]
-[ext_resource type="PackedScene" path="res://fire_baller.tscn" id="4_wpnjn"]
+[ext_resource type="PackedScene" uid="uid://lgjbkqb06dwb" path="res://fire_baller.tscn" id="4_wpnjn"]
 [ext_resource type="PackedScene" uid="uid://csf33uq2lytm4" path="res://scenes/exploding_fire/exploding_fire_caster.tscn" id="5_h67dd"]
 
 [node name="Game" type="Node"]

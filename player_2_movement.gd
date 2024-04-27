@@ -18,6 +18,20 @@ func get_damage(damage):
 
 func game_over():
 	print_debug('game over')
+	
+func get_target_enemy():
+	var enemies = get_tree().get_nodes_in_group("enemies") # Получаем список всех узлов в группе "enemies"
+	var closest_enemy = null
+	var closest_distance = INF
+
+	for enemy in enemies:
+		if enemy is Enemy:
+			var distance = global_position.distance_to(enemy.global_position) # Рассчитываем расстояние между текущим узлом и врагом
+			if distance < closest_distance:
+				closest_enemy = enemy
+				closest_distance = distance
+
+	return Vector2(closest_enemy.position)
 
 func _physics_process(delta):
 	velocity = Vector2.ZERO # The player's movement vector.
