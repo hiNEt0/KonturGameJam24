@@ -14,6 +14,7 @@ extends Area2D
 var start_position: Vector2
 var direction: Vector2
 
+
 func _process(delta):
 	position += direction.normalized() * speed * delta
 	speed = speed_curve.sample(lifetime / max_lifetime)
@@ -23,19 +24,20 @@ func _process(delta):
 		explode()
 		queue_free()
 
+
 func _on_body_entered(body):
 	if body is Enemy:
 		lifetime = max_lifetime
+
 
 func setup(player_position, player_direction):
 	position = player_position
 	start_position = player_position
 	direction = player_direction
 
+
 func explode():
 	var new_explosion = explosion_scene.instantiate()
 	new_explosion.setup(position)
 	get_tree().get_root().add_child(new_explosion)
-	
-	print_debug("exploded ", position)
 	

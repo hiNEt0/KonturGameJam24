@@ -5,13 +5,13 @@ extends Area2D
 @onready var timer = 0.5
 @export var explosion_time_threshold = 0.4
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	if timer > 0:
 		timer -= delta
 	else:
-		print_debug("died")
 		queue_free()
+
 
 func setup(explosion_position):
 	position = explosion_position

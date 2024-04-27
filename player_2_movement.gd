@@ -62,7 +62,8 @@ func _physics_process(delta):
 		#velocity.x = direction * speed
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, speed)
-		
+
+	direction = get_direction()
 	velocity.x *= movement_modifier.x
 	velocity.y *= movement_modifier.y
 	move_and_collide(velocity.normalized() * speed * delta)

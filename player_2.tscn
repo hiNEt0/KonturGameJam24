@@ -100,5 +100,3 @@ position = Vector2(70, -20)
 scale = Vector2(8.21795, 8.21795)
 sprite_frames = SubResource("SpriteFrames_4xlkr")
 animation = &"idle"
-
-[node name="RayCast2D" type="RayCast2D" parent="."]

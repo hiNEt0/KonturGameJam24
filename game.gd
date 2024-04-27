@@ -5,6 +5,7 @@ extends Node
 @export var time_to_spawn: float
 @onready var spawn_timer = 0.0
 @onready var player = $"Player2"
+@onready var exp_manager = $"ExperienceManager"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,5 +25,5 @@ func spawn_enemy():
 	var random_y = randf_range(-screen_size.y, screen_size.y)
 	
 	var new_enemy = enemy_scene.instantiate()
-	new_enemy.initialize(player, Vector2(random_x, random_y))
+	new_enemy.initialize(player, exp_manager, Vector2(random_x, random_y))
 	add_child(new_enemy)
