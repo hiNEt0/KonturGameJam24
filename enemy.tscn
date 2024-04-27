@@ -1,13 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmf2yiyjubp7u"]
+[gd_scene load_steps=10 format=3 uid="uid://cmf2yiyjubp7u"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_sm1nt"]
-[ext_resource type="Texture2D" uid="uid://dxhjb3fkf1642" path="res://icon.svg" id="2_npq1j"]
+[ext_resource type="Texture2D" uid="uid://c6sri3fg8y4yk" path="res://resources/sprites/enemies/dummy/tile000.png" id="2_n0llj"]
+[ext_resource type="Texture2D" uid="uid://trmnuvw0htve" path="res://resources/sprites/enemies/dummy/tile001.png" id="3_jvqsl"]
+[ext_resource type="Texture2D" uid="uid://mf0o22mg6wct" path="res://resources/sprites/enemies/dummy/tile002.png" id="4_fy8nd"]
+[ext_resource type="Texture2D" uid="uid://bqidyifc6d37i" path="res://resources/sprites/enemies/dummy/tile003.png" id="5_a5w0u"]
+[ext_resource type="Texture2D" uid="uid://bu58nae7idr7j" path="res://resources/sprites/enemies/dummy/tile004.png" id="6_hvnxi"]
+[ext_resource type="Texture2D" uid="uid://dolfatdtu2p04" path="res://resources/sprites/enemies/dummy/tile005.png" id="7_qk7v4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jqe4n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_npq1j")
+"texture": ExtResource("2_n0llj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jvqsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fy8nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a5w0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hvnxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qk7v4")
 }],
 "loop": true,
 "name": &"default",
@@ -15,18 +35,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w32up"]
-size = Vector2(38, 38)
+size = Vector2(19, 27)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_sm1nt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+position = Vector2(-9, 3)
 sprite_frames = SubResource("SpriteFrames_jqe4n")
+frame_progress = 0.416226
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_w32up")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-1.2517e-06, 4.76837e-07)
+position = Vector2(0, -1)
 scale = Vector2(1.9, 1.9)

@@ -12,7 +12,7 @@ func initialize(player, new_position):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$AnimatedSprite2D.play("default")
 
 func get_damage(damage):
 	hp -= damage
@@ -23,6 +23,8 @@ func get_damage(damage):
 func _physics_process(delta):
 	if attack_cooldown < 1.0:
 		attack_cooldown += delta
+		
+	$AnimatedSprite2D.flip_h = velocity.x < 0
 		
 	velocity = Vector2(player_node.position - position).normalized() * 50
 	var collisions = move_and_collide(velocity * delta * speed)
