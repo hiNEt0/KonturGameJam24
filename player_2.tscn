@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2r6iomqfnpj3"]
+[gd_scene load_steps=19 format=3 uid="uid://d2r6iomqfnpj3"]
 
 [ext_resource type="Texture2D" uid="uid://dkab6iquxq1e2" path="res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png" id="1_hwfi1"]
 [ext_resource type="Script" path="res://player_2_movement.gd" id="1_k3r6g"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d0tnoppx64sk" path="res://resources/sprites/wizard/wiz_right/wiz_right_3.png" id="12_4h81s"]
 [ext_resource type="Texture2D" uid="uid://66t76u0ppo4y" path="res://resources/sprites/wizard/wiz_right/wiz_right_4.png" id="13_hjknb"]
 [ext_resource type="Texture2D" uid="uid://deopm0ffg1cc0" path="res://resources/sprites/wizard/wiz_right/wiz_right_5.png" id="14_w7qw1"]
+[ext_resource type="PackedScene" uid="uid://lgjbkqb06dwb" path="res://fire_baller.tscn" id="16_bs3kv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a74h8"]
 radius = 59.0
@@ -99,3 +100,5 @@ position = Vector2(70, -20)
 scale = Vector2(8.21795, 8.21795)
 sprite_frames = SubResource("SpriteFrames_4xlkr")
 animation = &"idle"
+
+[node name="FireBaller" parent="." instance=ExtResource("16_bs3kv")]
