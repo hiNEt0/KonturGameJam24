@@ -1,21 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu6jwnbw51e4d"]
+[gd_scene load_steps=18 format=3 uid="uid://cu6jwnbw51e4d"]
 
 [ext_resource type="Texture2D" uid="uid://dkab6iquxq1e2" path="res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png" id="1_4gx2x"]
 [ext_resource type="Script" path="res://player_control.gd" id="1_5smom"]
+[ext_resource type="Texture2D" uid="uid://do0ntjp3ptd5y" path="res://resources/sprites/wizard/wiz_idle/wiz_idle_0.png" id="3_7tc1o"]
+[ext_resource type="Texture2D" uid="uid://c400nnfv2hwph" path="res://resources/sprites/wizard/wiz_right/wiz_right_0.png" id="3_mdkwv"]
+[ext_resource type="Texture2D" uid="uid://dvhao8svu6d0j" path="res://resources/sprites/wizard/wiz_left/wiz_left_0.png" id="4_3lol2"]
+[ext_resource type="Texture2D" uid="uid://bqplvesgd5oqr" path="res://resources/sprites/wizard/wiz_right/wiz_right_1.png" id="4_78xyb"]
+[ext_resource type="Texture2D" uid="uid://btnr6p8ksceey" path="res://resources/sprites/wizard/wiz_left/wiz_left_1.png" id="5_qi4fl"]
+[ext_resource type="Texture2D" uid="uid://bru8yestj1erj" path="res://resources/sprites/wizard/wiz_right/wiz_right_2.png" id="5_xwr85"]
+[ext_resource type="Texture2D" uid="uid://c4r2d24rs3ilt" path="res://resources/sprites/wizard/wiz_left/wiz_left_2.png" id="6_767ed"]
+[ext_resource type="Texture2D" uid="uid://d0tnoppx64sk" path="res://resources/sprites/wizard/wiz_right/wiz_right_3.png" id="6_n6aho"]
+[ext_resource type="Texture2D" uid="uid://66t76u0ppo4y" path="res://resources/sprites/wizard/wiz_right/wiz_right_4.png" id="7_rdlsg"]
+[ext_resource type="Texture2D" uid="uid://ck61ikgsivpf0" path="res://resources/sprites/wizard/wiz_left/wiz_left_3.png" id="7_xc52q"]
+[ext_resource type="Texture2D" uid="uid://deopm0ffg1cc0" path="res://resources/sprites/wizard/wiz_right/wiz_right_5.png" id="8_hqjwk"]
+[ext_resource type="Texture2D" uid="uid://d4b5b286860km" path="res://resources/sprites/wizard/wiz_left/wiz_left_4.png" id="8_s4tny"]
+[ext_resource type="Texture2D" uid="uid://cl35tp74plfit" path="res://resources/sprites/wizard/wiz_left/wiz_left_5.png" id="9_p610p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kb7m"]
 radius = 57.0
 height = 246.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_bp8mt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7tc1o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3lol2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qi4fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_767ed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xc52q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s4tny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p610p")
+}],
+"loop": true,
+"name": &"wiz_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mdkwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_78xyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xwr85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n6aho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rdlsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hqjwk")
+}],
+"loop": true,
+"name": &"wiz_right",
+"speed": 5.0
+}]
+
 [node name="Player" type="Area2D"]
+z_index = 5
 position = Vector2(4, 1)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_5smom")
 speed = 200
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.341667, 0.341667)
-texture = ExtResource("1_4gx2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6kb7m")
@@ -26,5 +93,13 @@ zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="aim" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.0555556, 0.0555556)
 texture = ExtResource("1_4gx2x")
+
+[node name="sprites" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(70, -20)
+scale = Vector2(8.21795, 8.21795)
+sprite_frames = SubResource("SpriteFrames_bp8mt")
+animation = &"idle"

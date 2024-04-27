@@ -2,15 +2,18 @@ extends Area2D
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 @onready var aim = $aim
+@onready var sprite = $sprites
 
 func _process(delta):
 	aim.position.x = 0
 	aim.position.y = 0
 	var velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("move_right"):
+		sprite.play("wiz_right")
 		velocity.x += 1
 		aim.position.x = 100
 	if Input.is_action_pressed("move_left"):
+		sprite.play("wiz_left")
 		velocity.x -= 1
 		aim.position.x = -100
 	if Input.is_action_pressed("move_down"):
@@ -19,6 +22,8 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 		aim.position.y = -100
+	if not Input.is_anything_pressed():
+		sprite.play("idle")
 
 	#if velocity.length() > 0:
 		#velocity = velocity.normalized() * speed
