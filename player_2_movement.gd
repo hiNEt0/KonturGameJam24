@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var sprite = $sprites
 @onready var direction = Vector2(1, 0)
 @onready var last_direction = direction
+var movement_modifier = Vector2(1, 1)
 
 func get_damage(damage):
 	if damage_cooldown >= 1.0:
@@ -62,7 +63,8 @@ func _physics_process(delta):
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, speed)
 		
-	direction = get_direction()
+	velocity.x *= movement_modifier.x
+	velocity.y *= movement_modifier.y
 	move_and_collide(velocity.normalized() * speed * delta)
 	
 func get_direction():
