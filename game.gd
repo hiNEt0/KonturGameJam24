@@ -6,12 +6,13 @@ extends Node
 @onready var spawn_timer = 0.0
 @onready var player = $"Player2"
 @onready var exp_manager = $"ExperienceManager"
+@onready var inv_manager = $"InventoryManager"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_enemy()
-	$Player2/ExplodingFireCaster.assign_player(player)
-	$Player2/ShotgunCaster.assign_player(player)
+	exp_manager.assign_inv_manager(inv_manager)
+	inv_manager.assign_player(player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

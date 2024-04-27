@@ -9,11 +9,11 @@ extends Node2D
 @onready var spell_scene = load("res://scenes/shotgun/shotgun_spell.tscn")
 
 var player: Node2D
-
+var key: Key
 
 func _process(delta):
 	tick_cooldown(delta)
-	if can_cast and Input.is_key_pressed(KEY_K):
+	if can_cast and Input.is_key_pressed(key):
 		cast()
 
 func assign_player(player_node):
@@ -30,8 +30,6 @@ func cast():
 		var new_spell = spell_scene.instantiate()
 		new_spell.setup(player.position, Vector2(player.direction.x + randf_range(-PI / 8, PI / 8), player.direction.y + randf_range(-PI / 8, PI / 8)))
 		get_tree().get_root().add_child(new_spell)
-	
-	print_debug("casted ", position)
 	
 	timer = cooldown
 	can_cast = false

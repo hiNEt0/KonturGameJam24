@@ -1,6 +1,6 @@
 extends Area2D
 @export var target = Vector2(0,0)
-@export var speed = 100
+@export var speed = 150
 var direction = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
@@ -15,5 +15,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body is Enemy:
-		body.get_damage(100)
+		body.get_damage(25)
 		queue_free()

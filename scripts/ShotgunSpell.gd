@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var speed = 200
-@export var damage = 100
+@export var damage = 20
 @export var max_lifetime = 0.5
 @onready var lifetime = 0.0
 

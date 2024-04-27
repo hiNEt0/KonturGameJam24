@@ -44,5 +44,4 @@ func _physics_process(delta):
 
 func on_hit_player():
 	player_node.get_damage(20)
-	print_debug(player_node.hp)
 

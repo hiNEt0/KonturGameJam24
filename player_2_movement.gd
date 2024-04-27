@@ -38,7 +38,6 @@ func _physics_process(delta):
 	velocity = Vector2.ZERO # The player's movement vector.
 	if damage_cooldown < 1.0:
 		damage_cooldown += delta
-		print_debug(damage_cooldown)
 		
 	if Input.is_action_pressed("move_right"):
 		sprite.play("wiz_right")

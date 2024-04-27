@@ -6,13 +6,14 @@ extends Node2D
 @onready var timer = cooldown
 @onready var can_cast = false
 @onready var spell_scene = load("res://scenes/exploding_fire/exploding_fire_spell.tscn")
+@onready var key: Key
 
 var player: Node2D
 
 
 func _process(delta):
 	tick_cooldown(delta)
-	if can_cast and Input.is_key_pressed(KEY_J):
+	if can_cast and Input.is_key_pressed(key):
 		cast()
 
 

@@ -1,7 +1,7 @@
 extends Node2D
 class_name fire_baller
 
-@export var cooldown = 1
+@export var cooldown = 1.5
 @onready var timer = cooldown
 @onready var missile = load("res://fire_ball.tscn")
 
@@ -16,11 +16,30 @@ func _process(delta):
 		timer = cooldown
 		var current_missile = missile.instantiate()
 		current_missile.position = get_parent().position
-		current_missile.direction = (get_parent().get_target_enemy() - get_parent().position).normalized()
+		current_missile.direction = (get_target_enemy() - get_parent().position).normalized()
 		get_tree().get_root().add_child(current_missile)
 	else:
 		timer -= delta
 		
+
+func get_target_enemy():
+	var enemies = get_tree().get_nodes_in_group("enemies") # Получаем список всех узлов в группе "enemies"
+	var closest_enemy = null
+	var closest_distance = INF
+
+	for enemy in enemies:
+		if enemy is Enemy:
+			var distance = global_position.distance_to(enemy.global_position) # Рассчитываем расстояние между текущим узлом и врагом
+			if distance < closest_distance:
+				closest_enemy = enemy
+				closest_distance = distance
+			
+	return Vector2(closest_enemy.position)
+
+
+func _on_RayCast2D_body_entered(body):
+	if body is Enemy:
+		print("Найден ближайший враг:", body)
 	
 func get_target():
 	return Vector2(100, 0)

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctc65kh2iynn2"]
+[gd_scene load_steps=4 format=3 uid="uid://ctc65kh2iynn2"]
 
 [ext_resource type="Script" path="res://scripts/experience_manager.gd" id="1_e5870"]
+[ext_resource type="PackedScene" uid="uid://csf33uq2lytm4" path="res://scenes/exploding_fire/exploding_fire_caster.tscn" id="2_j8rcb"]
+[ext_resource type="PackedScene" uid="uid://cl4bwf22c0jh2" path="res://scenes/shotgun/shotgun_caster.tscn" id="3_xru8c"]
 
 [node name="ExperienceManager" type="Node"]
 script = ExtResource("1_e5870")
+explosion_caster = ExtResource("2_j8rcb")
+shotgun_caster = ExtResource("3_xru8c")
