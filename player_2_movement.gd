@@ -1,22 +1,28 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed = 100 # How fast the player will move (pixels/sec).
 @export var hp = 100
+@export var damage_cooldown = 1.0
 @onready var aim = $aim
 @onready var sprite = $sprites
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-
 func get_damage(damage):
-	hp -= damage
-	if hp <= 0:
-		game_over()
+	if damage_cooldown >= 1.0:
+		damage_cooldown = 0.0
+		hp -= damage
+		if hp <= 0:
+			game_over()
 
 func game_over():
 	print_debug('game over')
 
 func _physics_process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
+	velocity = Vector2.ZERO # The player's movement vector.
+	if damage_cooldown < 1.0:
+		damage_cooldown += delta
+		print_debug(damage_cooldown)
+		
 	if Input.is_action_pressed("move_right"):
 		sprite.play("wiz_right")
 		velocity.x += 1

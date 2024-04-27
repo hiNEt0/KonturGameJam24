@@ -1,18 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgb4defbtx4ra"]
+[gd_scene load_steps=6 format=3 uid="uid://dgb4defbtx4ra"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_3xvkm"]
 [ext_resource type="PackedScene" uid="uid://d2r6iomqfnpj3" path="res://player_2.tscn" id="1_5trys"]
 [ext_resource type="PackedScene" uid="uid://cmf2yiyjubp7u" path="res://enemy.tscn" id="2_2ilrm"]
 [ext_resource type="PackedScene" uid="uid://c0f5sh75fgna1" path="res://background.tscn" id="2_qp0fh"]
+[ext_resource type="PackedScene" uid="uid://lgjbkqb06dwb" path="res://fire_baller.tscn" id="4_wpnjn"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_3xvkm")
 enemy_scene = ExtResource("2_2ilrm")
-time_to_spawn = 5.0
+time_to_spawn = 1.0
 
 [node name="Player2" parent="." instance=ExtResource("1_5trys")]
 z_index = 1
 position = Vector2(-9, 103)
+
+[node name="FireBaller" parent="Player2" instance=ExtResource("4_wpnjn")]
+
+[node name="RayCast2D" type="RayCast2D" parent="Player2"]
 
 [node name="Background" parent="." instance=ExtResource("2_qp0fh")]
 position = Vector2(325.267, 142.631)
