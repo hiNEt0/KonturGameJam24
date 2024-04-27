@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkjwsk75lcsch"]
+
+[ext_resource type="Script" path="res://scripts/ShotgunSpell.gd" id="1_x62ur"]
+[ext_resource type="Texture2D" uid="uid://dxhjb3fkf1642" path="res://icon.svg" id="2_r4xvs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_im4wl"]
+size = Vector2(14, 14)
+
+[node name="ShotgunSpell" type="Area2D"]
+script = ExtResource("1_x62ur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_im4wl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_r4xvs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

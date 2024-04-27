@@ -11,6 +11,7 @@ extends Node
 func _ready():
 	spawn_enemy()
 	$Player2/ExplodingFireCaster.assign_player(player)
+	$Player2/ShotgunCaster.assign_player(player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

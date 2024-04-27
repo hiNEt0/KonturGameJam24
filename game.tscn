@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2pp855lfqb04"]
+[gd_scene load_steps=9 format=3 uid="uid://ckasemwm5gscv"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_e3g5l"]
 [ext_resource type="PackedScene" uid="uid://cmf2yiyjubp7u" path="res://enemy.tscn" id="2_48vdd"]
 [ext_resource type="PackedScene" uid="uid://c0f5sh75fgna1" path="res://background.tscn" id="2_tdtdf"]
 [ext_resource type="PackedScene" uid="uid://d2r6iomqfnpj3" path="res://player_2.tscn" id="3_uhgwk"]
 [ext_resource type="PackedScene" path="res://event_manager.tscn" id="4_35yc0"]
+[ext_resource type="PackedScene" uid="uid://cl4bwf22c0jh2" path="res://scenes/shotgun/shotgun_caster.tscn" id="5_na2fx"]
 [ext_resource type="PackedScene" uid="uid://csf33uq2lytm4" path="res://scenes/exploding_fire/exploding_fire_caster.tscn" id="5_wd4oy"]
-[ext_resource type="PackedScene" uid="uid://ctc65kh2iynn2" path="res://scenes/experience_manager.tscn" id="6_e5vs5"]
+[ext_resource type="PackedScene" path="res://scenes/experience_manager.tscn" id="6_e5vs5"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_e3g5l")
@@ -19,6 +20,8 @@ time_to_spawn = 1.0
 position = Vector2(-429, -262)
 
 [node name="ExplodingFireCaster" parent="Player2" instance=ExtResource("5_wd4oy")]
+
+[node name="ShotgunCaster" parent="Player2" instance=ExtResource("5_na2fx")]
 
 [node name="EventManager" parent="." instance=ExtResource("4_35yc0")]
 
