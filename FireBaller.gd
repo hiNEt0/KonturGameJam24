@@ -23,12 +23,18 @@ func _process(delta):
 		
 
 func get_target_enemy():
-	var collision = $"../RayCast2D".get_collider()
-	if collision:
-		var closest_enemy = collision.get_parent()
-		if closest_enemy and closest_enemy is Enemy:
-			return Vector2(closest_enemy.position)
-	return Vector2(10, 0)
+	var enemies = get_tree().get_nodes_in_group("enemies") # Получаем список всех узлов в группе "enemies"
+	var closest_enemy = null
+	var closest_distance = INF
+
+	for enemy in enemies:
+		if enemy is Enemy:
+			var distance = global_position.distance_to(enemy.global_position) # Рассчитываем расстояние между текущим узлом и врагом
+			if distance < closest_distance:
+				closest_enemy = enemy
+				closest_distance = distance
+
+	return Vector2(closest_enemy.position)
 	
 func _on_RayCast2D_body_entered(body):
 	if body is Enemy:
