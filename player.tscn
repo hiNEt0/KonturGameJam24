@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://cu6jwnbw51e4d"]
+[gd_scene load_steps=18 format=3 uid="uid://cdxrboxx38qn4"]
 
 [ext_resource type="Texture2D" uid="uid://dkab6iquxq1e2" path="res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png" id="1_4gx2x"]
-[ext_resource type="Script" path="res://player_control.gd" id="1_5smom"]
 [ext_resource type="Texture2D" uid="uid://do0ntjp3ptd5y" path="res://resources/sprites/wizard/wiz_idle/wiz_idle_0.png" id="3_7tc1o"]
 [ext_resource type="Texture2D" uid="uid://c400nnfv2hwph" path="res://resources/sprites/wizard/wiz_right/wiz_right_0.png" id="3_mdkwv"]
 [ext_resource type="Texture2D" uid="uid://dvhao8svu6d0j" path="res://resources/sprites/wizard/wiz_left/wiz_left_0.png" id="4_3lol2"]
@@ -15,6 +14,45 @@
 [ext_resource type="Texture2D" uid="uid://deopm0ffg1cc0" path="res://resources/sprites/wizard/wiz_right/wiz_right_5.png" id="8_hqjwk"]
 [ext_resource type="Texture2D" uid="uid://d4b5b286860km" path="res://resources/sprites/wizard/wiz_left/wiz_left_4.png" id="8_s4tny"]
 [ext_resource type="Texture2D" uid="uid://cl35tp74plfit" path="res://resources/sprites/wizard/wiz_left/wiz_left_5.png" id="9_p610p"]
+
+[sub_resource type="GDScript" id="GDScript_xfhur"]
+script/source = "extends Area2D
+
+@export var speed = 400 # How fast the player will move (pixels/sec).
+@onready var aim = $aim
+@onready var sprite = $sprites
+
+func _process(delta):
+	aim.position.x = 0
+	aim.position.y = 0
+	var velocity = Vector2.ZERO # The player's movement vector.
+	if Input.is_action_pressed(\"move_right\"):
+		sprite.play(\"wiz_right\")
+		velocity.x += 1
+		aim.position.x = 100
+	if Input.is_action_pressed(\"move_left\"):
+		sprite.play(\"wiz_left\")
+		velocity.x -= 1
+		aim.position.x = -100
+	if Input.is_action_pressed(\"move_down\"):
+		velocity.y += 1
+		aim.position.y = 100
+	if Input.is_action_pressed(\"move_up\"):
+		velocity.y -= 1
+		aim.position.y = -100
+	if not Input.is_anything_pressed():
+		sprite.play(\"idle\")
+
+	#if velocity.length() > 0:
+		#velocity = velocity.normalized() * speed
+		#$AnimatedSprite2D.play()
+	#else:\"res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png\"
+		#$AnimatedSprite2D.stop()
+	
+	
+	position += velocity.normalized() * delta * speed
+	
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kb7m"]
 radius = 57.0
@@ -81,7 +119,7 @@ animations = [{
 z_index = 5
 position = Vector2(4, 1)
 scale = Vector2(0.3, 0.3)
-script = ExtResource("1_5smom")
+script = SubResource("GDScript_xfhur")
 speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

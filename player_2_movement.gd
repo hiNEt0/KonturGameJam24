@@ -1,12 +1,19 @@
 extends CharacterBody2D
 
 @export var speed = 100 # How fast the player will move (pixels/sec).
+@export var hp = 100
 @onready var aim = $aim
 @onready var sprite = $sprites
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
+func get_damage(damage):
+	hp -= damage
+	if hp <= 0:
+		game_over()
 
+func game_over():
+	print_debug('game over')
 
 func _physics_process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
