@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcmlxke2w62ux"]
 
 [ext_resource type="Script" path="res://fire_ball.gd" id="1_6hqp4"]
-[ext_resource type="Texture2D" uid="uid://dxhjb3fkf1642" path="res://icon.svg" id="1_df8oh"]
+[ext_resource type="Texture2D" uid="uid://v4o537vmqspd" path="res://resources/sprites/spells/fireball.png" id="2_7h6o6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1lskq"]
 radius = 63.1981
@@ -10,10 +10,13 @@ radius = 63.1981
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_6hqp4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_df8oh")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1lskq")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture_filter = 1
+position = Vector2(-3.49999, -13.5)
+scale = Vector2(4.15625, 4.15625)
+texture = ExtResource("2_7h6o6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

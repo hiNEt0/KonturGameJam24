@@ -15,5 +15,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body is Enemy:
-		body.get_damage(25)
+		body.get_damage(50)
 		queue_free()
