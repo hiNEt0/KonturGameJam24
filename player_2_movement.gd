@@ -13,6 +13,7 @@ extends CharacterBody2D
 var movement_modifier = Vector2(1, 1)
 var dash = 1
 
+
 func get_damage(damage):
 	if damage_cooldown >= 1.0:
 		damage_cooldown = 0.0

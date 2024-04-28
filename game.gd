@@ -18,6 +18,7 @@ func _ready():
 	inv_manager.assign_player(player)
 	music.play()
 	event_manager.assign_player(sfx)
+	$Player2/SlownessCaster.assign_player(player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

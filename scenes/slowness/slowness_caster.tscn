@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxk4wvcl7qii5"]
+
+[ext_resource type="Script" path="res://scripts/SlownessCaster.gd" id="1_ha0rc"]
+[ext_resource type="PackedScene" uid="uid://c3yr8267rpyy8" path="res://scenes/slowness/slowness_spell.tscn" id="2_hx6or"]
+
+[node name="SlownessCaster" type="Node2D"]
+script = ExtResource("1_ha0rc")
+spell_scene = ExtResource("2_hx6or")
