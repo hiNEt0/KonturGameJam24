@@ -26,6 +26,7 @@ func get_damage(damage):
 	if hp <= 0:
 		on_killed.emit()
 		queue_free()
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

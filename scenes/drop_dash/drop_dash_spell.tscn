@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3oekvhf8q8yn"]
+
+[ext_resource type="Texture2D" uid="uid://dxhjb3fkf1642" path="res://icon.svg" id="1_1ehyd"]
+[ext_resource type="Script" path="res://scripts/drop_dash_spell.gd" id="1_aaiw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp46f"]
+size = Vector2(64, 64)
+
+[node name="DropDashSpell" type="Area2D"]
+script = ExtResource("1_aaiw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1ehyd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qp46f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
