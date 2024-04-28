@@ -1,6 +1,9 @@
 class_name ShotgunCaster
 extends Node2D
 
+@export var display_name = "Дробящий призыв"
+@export var display_icon: Texture2D
+
 @export var cooldown = 1
 @export var count = 5
 

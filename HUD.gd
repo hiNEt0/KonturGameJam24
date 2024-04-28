@@ -10,6 +10,14 @@ extends CanvasLayer
 @onready var option2 = $"Control/LevelupPanel/Option2" as Button
 @onready var option3 = $"Control/LevelupPanel/Option3" as Button
 
+@onready var optionIcon1 = $"Control/LevelupPanel/OptionIcon1"
+@onready var optionIcon2 = $"Control/LevelupPanel/OptionIcon2"
+@onready var optionIcon3 = $"Control/LevelupPanel/OptionIcon3"
+
+@onready var optionLabel1 = $"Control/LevelupPanel/OptionLabel1"
+@onready var optionLabel2 = $"Control/LevelupPanel/OptionLabel2"
+@onready var optionLabel3 = $"Control/LevelupPanel/OptionLabel3"
+
 @onready var levelup_time = false
 
 @onready var levelup_select_cooldown = 0.2
@@ -44,6 +52,20 @@ func update_exp_bar():
 	exp_bar.max_value = exp_manager.next_exp_goal
 	exp_bar.value = exp_manager.exp
 	lvl_label.text = var_to_str(exp_manager.level)
+
+
+func format_options(op1, op2, op3):
+	var ins1 = op1.instantiate()
+	var ins2 = op2.instantiate()
+	var ins3 = op3.instantiate()
+	
+	optionIcon1.texture = ins1.display_icon
+	optionIcon2.texture = ins2.display_icon
+	optionIcon3.texture = ins3.display_icon
+
+	optionLabel1.text = ins1.display_name
+	optionLabel2.text = ins2.display_name
+	optionLabel3.text = ins3.display_name
 
 
 func show_levelup_panel():

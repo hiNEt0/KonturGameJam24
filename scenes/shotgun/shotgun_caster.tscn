@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl4bwf22c0jh2"]
+[gd_scene load_steps=3 format=3 uid="uid://cl4bwf22c0jh2"]
 
 [ext_resource type="Script" path="res://scripts/ShotgunCaster.gd" id="1_8l6ij"]
+[ext_resource type="Texture2D" uid="uid://b7om05yw65xqg" path="res://resources/sprites/spells/shotgun_shot.png" id="2_h21s6"]
 
 [node name="ShotgunCaster" type="Node2D"]
 script = ExtResource("1_8l6ij")
+display_icon = ExtResource("2_h21s6")

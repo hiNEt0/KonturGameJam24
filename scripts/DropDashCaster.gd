@@ -1,6 +1,9 @@
 class_name DropDashCaster
 extends Node2D
 
+@export var display_name = "Фазовый прыжок"
+@export var display_icon: Texture2D
+
 @export var cooldown = 3
 
 @onready var timer = cooldown

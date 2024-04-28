@@ -1,6 +1,9 @@
 class_name SlownessCaster
 extends Node2D
 
+@export var display_name = "Аура замедления"
+@export var display_icon: Texture2D
+
 @export var cooldown = 1
 @onready var timer = cooldown
 @onready var can_cast = false

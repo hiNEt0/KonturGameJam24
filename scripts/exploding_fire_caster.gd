@@ -1,6 +1,9 @@
 class_name ExplodingFireCaster
 extends Node2D
 
+@export var display_name = "Взрывной шар"
+@export var display_icon: Texture2D
+
 @export var cooldown = 1
 
 @onready var timer = cooldown

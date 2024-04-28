@@ -56,6 +56,7 @@ func offer_reward():
 	spell_1_id = ids.pop_at(randi_range(0, len(ids) - 1))
 	spell_2_id = ids.pop_at(randi_range(0, len(ids) - 1))
 	spell_3_id = ids.pop_at(randi_range(0, len(ids) - 1))
+	hud.format_options(spell_scenes[spell_1_id], spell_scenes[spell_2_id], spell_scenes[spell_3_id])
 	hud.show_levelup_panel()
 
 
