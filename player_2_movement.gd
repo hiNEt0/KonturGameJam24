@@ -61,7 +61,7 @@ func _physics_process(delta):
 		velocity.x += 1
 		aim.position.x = 100
 	if Input.is_action_pressed("move_left"):
-		sprite.play("wiz_left")
+		sprite.play("wiz_right")
 		velocity.x -= 1
 		aim.position.x = -100
 	if Input.is_action_pressed("move_down"):
@@ -82,6 +82,9 @@ func _physics_process(delta):
 	direction = get_direction()
 	velocity.x *= movement_modifier.x
 	velocity.y *= movement_modifier.y
+	if velocity.x != 0:
+		$sprites.flip_h = velocity.x < 0
+	
 	move_and_collide(velocity.normalized() * speed * delta * dash)
 	
 func get_direction():

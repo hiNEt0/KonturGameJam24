@@ -1,20 +1,31 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2r6iomqfnpj3"]
+[gd_scene load_steps=29 format=3 uid="uid://d2r6iomqfnpj3"]
 
 [ext_resource type="Texture2D" uid="uid://dkab6iquxq1e2" path="res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png" id="1_hwfi1"]
 [ext_resource type="Script" path="res://player_2_movement.gd" id="1_k3r6g"]
-[ext_resource type="Texture2D" uid="uid://do0ntjp3ptd5y" path="res://resources/sprites/wizard/wiz_idle/wiz_idle_0.png" id="2_kdec3"]
-[ext_resource type="Texture2D" uid="uid://dvhao8svu6d0j" path="res://resources/sprites/wizard/wiz_left/wiz_left_0.png" id="3_mu16e"]
-[ext_resource type="Texture2D" uid="uid://btnr6p8ksceey" path="res://resources/sprites/wizard/wiz_left/wiz_left_1.png" id="4_c2ey6"]
-[ext_resource type="Texture2D" uid="uid://c4r2d24rs3ilt" path="res://resources/sprites/wizard/wiz_left/wiz_left_2.png" id="5_bdagb"]
-[ext_resource type="Texture2D" uid="uid://ck61ikgsivpf0" path="res://resources/sprites/wizard/wiz_left/wiz_left_3.png" id="6_wmgc5"]
-[ext_resource type="Texture2D" uid="uid://d4b5b286860km" path="res://resources/sprites/wizard/wiz_left/wiz_left_4.png" id="7_t8216"]
-[ext_resource type="Texture2D" uid="uid://cl35tp74plfit" path="res://resources/sprites/wizard/wiz_left/wiz_left_5.png" id="8_ud7bn"]
-[ext_resource type="Texture2D" uid="uid://c400nnfv2hwph" path="res://resources/sprites/wizard/wiz_right/wiz_right_0.png" id="9_jopn2"]
-[ext_resource type="Texture2D" uid="uid://bqplvesgd5oqr" path="res://resources/sprites/wizard/wiz_right/wiz_right_1.png" id="10_j1rkl"]
-[ext_resource type="Texture2D" uid="uid://bru8yestj1erj" path="res://resources/sprites/wizard/wiz_right/wiz_right_2.png" id="11_arjkb"]
-[ext_resource type="Texture2D" uid="uid://d0tnoppx64sk" path="res://resources/sprites/wizard/wiz_right/wiz_right_3.png" id="12_4h81s"]
-[ext_resource type="Texture2D" uid="uid://66t76u0ppo4y" path="res://resources/sprites/wizard/wiz_right/wiz_right_4.png" id="13_hjknb"]
-[ext_resource type="Texture2D" uid="uid://deopm0ffg1cc0" path="res://resources/sprites/wizard/wiz_right/wiz_right_5.png" id="14_w7qw1"]
+[ext_resource type="Texture2D" uid="uid://bl60e02f48m8n" path="res://resources/sprites/wizard/new_wiz_idle/tile000.png" id="3_73sk4"]
+[ext_resource type="Texture2D" uid="uid://b1ko7my484mv3" path="res://resources/sprites/wizard/new_wiz_idle/tile001.png" id="4_jccs3"]
+[ext_resource type="Texture2D" uid="uid://e5w1lndfjreg" path="res://resources/sprites/wizard/new_wiz_idle/tile002.png" id="5_wypsk"]
+[ext_resource type="Texture2D" uid="uid://bolxyli6q753s" path="res://resources/sprites/wizard/new_wiz_idle/tile003.png" id="6_0dreq"]
+[ext_resource type="Texture2D" uid="uid://p668pqovpweb" path="res://resources/sprites/wizard/new_wiz_idle/tile004.png" id="7_7dvhx"]
+[ext_resource type="Texture2D" uid="uid://ds6klaw7oww6s" path="res://resources/sprites/wizard/new_wiz_idle/tile005.png" id="8_r6yy4"]
+[ext_resource type="Texture2D" uid="uid://bsxws7qbg20uu" path="res://resources/sprites/wizard/new_wiz_idle/tile006.png" id="9_05jwg"]
+[ext_resource type="Texture2D" uid="uid://cpgtsp8txh8h" path="res://resources/sprites/wizard/new_wiz_idle/tile007.png" id="10_a7q5q"]
+[ext_resource type="Texture2D" uid="uid://dli2lbb0lsphp" path="res://resources/sprites/wizard/new_wiz_move (копия)/tile000.png" id="11_pigtt"]
+[ext_resource type="Texture2D" uid="uid://blpq881fl4khi" path="res://resources/sprites/wizard/new_wiz_move (копия)/tile001.png" id="12_k6506"]
+[ext_resource type="Texture2D" uid="uid://brxv0lghf7b6h" path="res://resources/sprites/wizard/new_wiz_move (копия)/tile002.png" id="13_yual5"]
+[ext_resource type="Texture2D" uid="uid://bn71l0b40hdb5" path="res://resources/sprites/wizard/new_wiz_move (копия)/tile003.png" id="14_g6jhm"]
+[ext_resource type="Texture2D" uid="uid://dqgp5p15sb2s" path="res://resources/sprites/wizard/new_wiz_move (копия)/tile004.png" id="15_wrous"]
+[ext_resource type="Texture2D" uid="uid://cj6bxthws0uaf" path="res://resources/sprites/wizard/new_wiz_move (копия)/tile005.png" id="16_mr301"]
+[ext_resource type="Texture2D" uid="uid://bxpvuo4g30x46" path="res://resources/sprites/wizard/new_wiz_move/tile000.png" id="17_0y0e2"]
+[ext_resource type="Texture2D" uid="uid://brtw8wulqi7wc" path="res://resources/sprites/wizard/new_wiz_move (копия)/tile006.png" id="17_jx50q"]
+[ext_resource type="Texture2D" uid="uid://pfklt1ruqhlt" path="res://resources/sprites/wizard/new_wiz_move (копия)/tile007.png" id="18_w1l0v"]
+[ext_resource type="Texture2D" uid="uid://s6p73o3x6ru7" path="res://resources/sprites/wizard/new_wiz_move/tile001.png" id="18_wnqfb"]
+[ext_resource type="Texture2D" uid="uid://cxst51vgv6h2h" path="res://resources/sprites/wizard/new_wiz_move/tile002.png" id="19_3gyu4"]
+[ext_resource type="Texture2D" uid="uid://1slp7tj0svwl" path="res://resources/sprites/wizard/new_wiz_move/tile003.png" id="20_ukxcv"]
+[ext_resource type="Texture2D" uid="uid://b7cq5lhjh4ahy" path="res://resources/sprites/wizard/new_wiz_move/tile004.png" id="21_ysqey"]
+[ext_resource type="Texture2D" uid="uid://bfes3c5lqueq0" path="res://resources/sprites/wizard/new_wiz_move/tile005.png" id="22_ui03i"]
+[ext_resource type="Texture2D" uid="uid://c6sa77fpbw2ik" path="res://resources/sprites/wizard/new_wiz_move/tile006.png" id="23_ol4lw"]
+[ext_resource type="Texture2D" uid="uid://bk4txk77vcj7p" path="res://resources/sprites/wizard/new_wiz_move/tile007.png" id="24_lfwjf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a74h8"]
 radius = 57.0
@@ -24,7 +35,28 @@ height = 246.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_kdec3")
+"texture": ExtResource("3_73sk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jccs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wypsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0dreq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7dvhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r6yy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_05jwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a7q5q")
 }],
 "loop": true,
 "name": &"idle",
@@ -32,22 +64,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_mu16e")
+"texture": ExtResource("11_pigtt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_c2ey6")
+"texture": ExtResource("12_k6506")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_bdagb")
+"texture": ExtResource("13_yual5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_wmgc5")
+"texture": ExtResource("14_g6jhm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_t8216")
+"texture": ExtResource("15_wrous")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_ud7bn")
+"texture": ExtResource("16_mr301")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_jx50q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_w1l0v")
 }],
 "loop": true,
 "name": &"wiz_left",
@@ -55,22 +93,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_jopn2")
+"texture": ExtResource("17_0y0e2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_j1rkl")
+"texture": ExtResource("18_wnqfb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_arjkb")
+"texture": ExtResource("19_3gyu4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_4h81s")
+"texture": ExtResource("20_ukxcv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_hjknb")
+"texture": ExtResource("21_ysqey")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_w7qw1")
+"texture": ExtResource("22_ui03i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ol4lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_lfwjf")
 }],
 "loop": true,
 "name": &"wiz_right",
@@ -96,7 +140,7 @@ texture = ExtResource("1_hwfi1")
 
 [node name="sprites" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(70, -20)
-scale = Vector2(8.21795, 8.21795)
+position = Vector2(9.99999, -20)
+scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_4xlkr")
-animation = &"idle"
+animation = &"wiz_left"
