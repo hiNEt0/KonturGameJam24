@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var max_hp = 100
 @export var damage_cooldown = 1.0
 @export var dash_cooldown = 1.0
-@export var dash_force = 30
+@export var dash_force = 60
 @onready var aim = $aim
 @onready var sprite = $sprites
 @onready var direction = Vector2(1, 0)
@@ -61,7 +61,7 @@ func _physics_process(delta):
 	if dash_cooldown < 1.0:
 		dash_cooldown += delta
 		
-	if Input.is_key_pressed(KEY_SPACE) and dash_cooldown >= 1.0 or can_dash:
+	if can_dash:
 		dash = dash_force
 		dash_cooldown = 0.0
 		can_dash = false

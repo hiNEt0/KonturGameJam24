@@ -14,6 +14,10 @@ config/name="Kontur Game Jam 24"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 move_right={

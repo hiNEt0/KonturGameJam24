@@ -4,8 +4,8 @@ extends Node2D
 @export var display_name = "Аура замедления"
 @export var display_icon: Texture2D
 
-@export var cooldown = 1
-@onready var timer = cooldown
+@export var cooldown = 5.0
+@onready var timer = 0.5
 @onready var can_cast = false
 @export var spell_scene : PackedScene
 

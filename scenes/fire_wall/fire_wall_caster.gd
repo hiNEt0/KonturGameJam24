@@ -7,7 +7,7 @@ extends Node2D
 @export var cooldown = 1
 @export var offset = 100
 
-@onready var timer = cooldown
+@onready var timer = 0.5
 @onready var can_cast = false
 @onready var spell_scene = load("res://scenes/fire_wall/fire_wall_focus.tscn")
 @onready var key: Key

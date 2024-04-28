@@ -19,4 +19,4 @@ func setup(explosion_position):
 
 func _on_body_entered(body):
 	if timer > explosion_time_threshold and body is Enemy:
-		body.get_damage(100)
+		body.get_damage(66)

@@ -15,5 +15,5 @@ func _process(delta):
 	lifetime -= delta
 	if timer < 0:
 		timer = damage_delay
-		get_parent().get_damage(50)
+		get_parent().get_damage(15)
 	timer -= delta

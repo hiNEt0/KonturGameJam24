@@ -6,7 +6,7 @@ extends Node2D
 
 @export var cooldown = 3
 
-@onready var timer = cooldown
+@onready var timer = 0.5
 @onready var can_cast = false
 @onready var spell_scene = load("res://scenes/drop_dash/drop_dash_spell.tscn")
 

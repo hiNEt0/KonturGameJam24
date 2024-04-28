@@ -37,7 +37,7 @@ func level_up():
 
 
 func get_exp_goal():
-	return 3 * level
+	return 2 + floori(level * 1.5)
 
 
 func on_enemy_killed():
