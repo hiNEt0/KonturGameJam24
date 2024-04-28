@@ -10,7 +10,6 @@ var direction: Vector2
 
 func _process(delta):
 	position += direction.normalized() * speed * delta
-		
 	lifetime += delta
 	if lifetime >= max_lifetime:
 		queue_free()

@@ -10,21 +10,25 @@ extends Node
 @onready var inv_manager = $"InventoryManager"
 @onready var music = $"AudioStreamPlayer2D"
 @onready var sfx = $"dementiaplayer"
+@onready var hud = $"HUD"
 
-# Called when the node enters the scene tree for the first time
+
 func _ready():
+	hud.set_process_mode(PROCESS_MODE_ALWAYS)
 	spawn_enemy()
-	exp_manager.assign_inv_manager(inv_manager)
+	exp_manager.assign_nodes(inv_manager, hud)
 	inv_manager.assign_player(player)
 	music.play()
-	event_manager.assign_player(sfx)
+	event_manager.assign_nodes(inv_manager, sfx)
+	hud.assign_nodes(player, exp_manager, inv_manager)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	spawn_timer += delta
 	if spawn_timer >= time_to_spawn:
 		spawn_enemy()
 		spawn_timer = 0.0
+
 
 func spawn_enemy():
 	var screen_size = player.get_viewport_rect().size

@@ -3,12 +3,24 @@ extends Node
 
 @onready var exp = 0
 @onready var level = 1
-@onready var next_exp_goal = 5
+@onready var next_exp_goal = 3
 
-@export var explosion_caster: PackedScene
-@export var shotgun_caster: PackedScene
+@onready var spell_scenes = [
+	load("res://scenes/exploding_fire/exploding_fire_caster.tscn"),
+	load("res://scenes/shotgun/shotgun_caster.tscn"),
+	load("res://scenes/slowness/slowness_caster.tscn"),
+	load("res://scenes/drop_dash/drop_dash_caster.tscn"),
+	load("res://scenes/fire_wall/fire_wall_caster.tscn"),
+]
 
 var inv_manager: InventoryManager
+var hud: HUD
+
+var spell_1_id: int
+var spell_2_id: int
+var spell_3_id: int
+var chosen_spell_id: int
+var chosen_option_id: int
 
 
 func add_exp(amount):
@@ -20,29 +32,46 @@ func add_exp(amount):
 func level_up():
 	level += 1
 	exp = 0
-	if level == 2:
-		get_reward_1()
-	if level == 3:
-		get_reward_2()
-	
 	next_exp_goal = get_exp_goal()
-	
+	offer_reward()
+
 
 func get_exp_goal():
-	return 5 * level
+	return 3 * level
 
 
 func on_enemy_killed():
 	add_exp(1)
 
 
-func get_reward_1():
-	inv_manager.add_spell(explosion_caster.instantiate(), KEY_J)
+func assign_nodes(inv_man_node, hud_node):
+	inv_manager = inv_man_node
+	hud = hud_node
 
 
-func get_reward_2():
-	inv_manager.add_spell(shotgun_caster.instantiate(), KEY_K)
+func offer_reward():
+	var ids = []
+	for i in range(len(spell_scenes)):
+		ids.append(i)
+	spell_1_id = ids.pop_at(randi_range(0, len(ids) - 1))
+	spell_2_id = ids.pop_at(randi_range(0, len(ids) - 1))
+	spell_3_id = ids.pop_at(randi_range(0, len(ids) - 1))
+	hud.show_levelup_panel()
 
 
-func assign_inv_manager(node):
-	inv_manager = node
+func _on_option_1_toggled(toggled_on):
+	if toggled_on:
+		chosen_spell_id = spell_1_id
+		chosen_option_id = 1
+
+
+func _on_option_2_toggled(toggled_on):
+	if toggled_on:
+		chosen_spell_id = spell_2_id
+		chosen_option_id = 2
+
+
+func _on_option_3_toggled(toggled_on):
+	if toggled_on:
+		chosen_spell_id = spell_3_id
+		chosen_option_id = 3

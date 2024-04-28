@@ -19,6 +19,9 @@ func _process(delta):
 func assign_player(player_node):
 	player = player_node
 
+func assign_key(keycode):
+	key = keycode
+
 func tick_cooldown(delta):
 	if timer > 0:
 		timer -= delta

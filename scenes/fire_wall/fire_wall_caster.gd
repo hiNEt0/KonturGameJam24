@@ -15,12 +15,16 @@ var player: Node2D
 
 func _process(delta):
 	tick_cooldown(delta)
-	if can_cast and Input.is_key_pressed(KEY_L):
+	if can_cast and Input.is_key_pressed(key):
 		cast()
 
 
 func assign_player(player_node):
 	player = player_node
+
+
+func assign_key(keycode):
+	key = keycode
 
 
 func tick_cooldown(delta):

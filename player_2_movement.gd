@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var speed = 100 # How fast the player will move (pixels/sec).
 @export var hp = 100
+@export var max_hp = 100
 @export var damage_cooldown = 1.0
 @export var dash_cooldown = 1.0
 @export var dash_force = 30
@@ -57,17 +58,19 @@ func _physics_process(delta):
 		dash = 1
 		
 	if Input.is_action_pressed("move_right"):
-		sprite.play("wiz_right")
+		sprite.play("wiz_move")
 		velocity.x += 1
 		aim.position.x = 100
 	if Input.is_action_pressed("move_left"):
-		sprite.play("wiz_right")
+		sprite.play("wiz_move")
 		velocity.x -= 1
 		aim.position.x = -100
 	if Input.is_action_pressed("move_down"):
+		sprite.play("wiz_move")
 		velocity.y += 1
 		aim.position.y = 100
 	if Input.is_action_pressed("move_up"):
+		sprite.play("wiz_move")
 		velocity.y -= 1
 		aim.position.y = -100
 	if not Input.is_anything_pressed():
