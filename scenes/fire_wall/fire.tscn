@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://db8x6y7frf7n"]
+
+[ext_resource type="Script" path="res://scenes/fire_wall/Fire.gd" id="1_7txwu"]
+[ext_resource type="Texture2D" uid="uid://dkab6iquxq1e2" path="res://gratis-png-johnny-knoxville-jackass-presenta-abuelo-malo-irving-zisman-pelicula-anciano.png" id="2_kt7ph"]
+
+[node name="Fire" type="Node2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_7txwu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kt7ph")

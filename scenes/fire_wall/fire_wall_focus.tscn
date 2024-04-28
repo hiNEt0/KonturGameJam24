@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cghktkiwxrwnv"]
+
+[ext_resource type="Script" path="res://scenes/fire_wall/fire_wall_focus.gd" id="1_a3bj5"]
+[ext_resource type="Texture2D" uid="uid://dxhjb3fkf1642" path="res://icon.svg" id="1_mwh3a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_620ko"]
+radius = 60.0083
+
+[node name="FireWallFocus" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_a3bj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_620ko")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mwh3a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
