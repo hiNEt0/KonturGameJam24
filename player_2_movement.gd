@@ -14,17 +14,24 @@ extends CharacterBody2D
 @onready var can_dash = false
 var movement_modifier = Vector2(1, 1)
 var dash = 1
+var isOver = false
+var overTime = 3
 
 
 func get_damage(damage):
-	if damage_cooldown >= 1.0:
-		damage_cooldown = 0.0
-		hp -= damage
-		if hp <= 0:
-			game_over()
+	if !isOver:
+		if damage_cooldown >= 1.0:
+			damage_cooldown = 0.0
+			hp -= damage
+			if hp <= 0:
+				game_over()
 
 func game_over():
-	print_debug('game over')
+	var hud = get_parent().get_node("HUD/Control/GameOverText")
+	hud.visible = true
+	isOver = true
+	get_node("FireBaller").queue_free()
+	
 	
 func get_target_enemy():
 	var enemies = get_tree().get_nodes_in_group("enemies") # Получаем список всех узлов в группе "enemies"
@@ -44,6 +51,10 @@ func do_dash():
 	can_dash = true
 
 func _physics_process(delta):
+	if isOver:
+		overTime -= delta
+	if overTime < 0:
+		get_tree().quit()
 	velocity = Vector2.ZERO # The player's movement vector.
 	if damage_cooldown < 1.0:
 		damage_cooldown += delta
@@ -87,7 +98,8 @@ func _physics_process(delta):
 	velocity.y *= movement_modifier.y
 	if velocity.x != 0:
 		$sprites.flip_h = velocity.x < 0
-	
+	if isOver:
+		velocity = Vector2(0, 0)
 	move_and_collide(velocity.normalized() * speed * delta * dash)
 	
 func get_direction():
