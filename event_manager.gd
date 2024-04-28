@@ -1,11 +1,11 @@
 extends Node2D
 
-@export var forgor_time = 2.5
+@export var forgor_time = 2
 @onready var forgor_timer = forgor_time
 
 var player_node : Node2D
 var time = 10
-@onready var timer = time
+@onready var timer = 20
 
 var inv_manager: InventoryManager
 var sfx: AudioStreamPlayer2D

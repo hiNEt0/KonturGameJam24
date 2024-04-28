@@ -3,7 +3,9 @@ extends Node
 
 @export var enemy_scene: PackedScene
 @export var time_to_spawn: float
-@onready var spawn_timer = 0.0
+
+@onready var min_time_to_spawn = 1.0
+@onready var spawn_timer = -5.0
 @onready var player = $"Player2"
 @onready var exp_manager = $"ExperienceManager"
 @onready var event_manager = $"EventManager"
