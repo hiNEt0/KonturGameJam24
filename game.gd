@@ -4,6 +4,7 @@ extends Node
 @export var enemy_scene: PackedScene
 @export var time_to_spawn: float
 
+@onready var enemy_speed = 1.0
 @onready var min_time_to_spawn = 0.5
 @onready var spawn_timer = -5.0
 @onready var player = $"Player2"
@@ -16,7 +17,6 @@ extends Node
 
 
 func _ready():
-	spawn_enemy()
 	hud.set_process_mode(PROCESS_MODE_ALWAYS)
 	exp_manager.assign_nodes(inv_manager, hud)
 	inv_manager.assign_player(player)
@@ -31,6 +31,7 @@ func _process(delta):
 		spawn_enemy()
 		spawn_timer = 0.0
 		time_to_spawn = max(min_time_to_spawn, time_to_spawn - 0.04)
+		enemy_speed += 0.05
 
 
 func spawn_enemy():
@@ -39,5 +40,5 @@ func spawn_enemy():
 	var random_y = randf_range(-screen_size.y, screen_size.y)
 	
 	var new_enemy = enemy_scene.instantiate()
-	new_enemy.initialize(player, exp_manager, Vector2(random_x, random_y))
+	new_enemy.initialize(player, exp_manager, Vector2(random_x, random_y), enemy_speed)
 	add_child(new_enemy)

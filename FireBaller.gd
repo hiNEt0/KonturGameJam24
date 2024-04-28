@@ -33,7 +33,8 @@ func get_target_enemy():
 			if distance < closest_distance:
 				closest_enemy = enemy
 				closest_distance = distance
-			
+	if not closest_enemy:
+		return Vector2(1, 0)
 	return Vector2(closest_enemy.position)
 
 

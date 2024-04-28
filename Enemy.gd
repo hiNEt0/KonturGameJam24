@@ -11,7 +11,7 @@ var exp_manager_node: ExperienceManager
 
 signal on_killed
 
-func initialize(player, exp_manager, new_position):
+func initialize(player, exp_manager, new_position, new_speed):
 	player_node = player
 	exp_manager_node = exp_manager
 	connect("on_killed", exp_manager_node.on_enemy_killed)
