@@ -4,7 +4,7 @@ extends Node
 @export var enemy_scene: PackedScene
 @export var time_to_spawn: float
 
-@onready var min_time_to_spawn = 1.0
+@onready var min_time_to_spawn = 0.5
 @onready var spawn_timer = -5.0
 @onready var player = $"Player2"
 @onready var exp_manager = $"ExperienceManager"
@@ -16,8 +16,8 @@ extends Node
 
 
 func _ready():
-	hud.set_process_mode(PROCESS_MODE_ALWAYS)
 	spawn_enemy()
+	hud.set_process_mode(PROCESS_MODE_ALWAYS)
 	exp_manager.assign_nodes(inv_manager, hud)
 	inv_manager.assign_player(player)
 	music.play()
@@ -30,6 +30,7 @@ func _process(delta):
 	if spawn_timer >= time_to_spawn:
 		spawn_enemy()
 		spawn_timer = 0.0
+		time_to_spawn = max(min_time_to_spawn, time_to_spawn - 0.04)
 
 
 func spawn_enemy():
